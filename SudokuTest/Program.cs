@@ -31,7 +31,7 @@ namespace SudokuTest
             {
                 Console.WriteLine(CheckBoard(board));
             }
-  
+
         }
 
         static bool ReadAndValidateInputData(int[,] board)
