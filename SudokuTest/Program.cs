@@ -5,6 +5,7 @@ namespace SudokuTest
         class Program
         {
             const int N = 9;
+            static int sqrt = (int)Math.Sqrt(N);
 
             static void Main()
             {
@@ -25,7 +26,7 @@ namespace SudokuTest
             {
                 string[] line = Console.ReadLine().Replace("  ", " ").Split(' ');
 
-                if ((i + 1) % 3 == 0)
+                if ((i + 1) % sqrt == 0)
                 {
                     Console.WriteLine(" ");
                 }
@@ -80,8 +81,6 @@ namespace SudokuTest
 
             static bool CheckBlock(int[,] board, int row, int col)
         {
-            int sqrt = (int)Math.Sqrt(N);
-
             for (int i = row; i < row + sqrt; i++)
             {
                 for (int j = col; j < col + sqrt; j++)
@@ -108,8 +107,6 @@ namespace SudokuTest
                     }
                 }
             }
-
-            int sqrt = (int)Math.Sqrt(N);
 
             for (int row = 0; row < N; row += sqrt)
             {
