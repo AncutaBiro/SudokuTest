@@ -23,7 +23,12 @@ namespace SudokuTest
         {
             for (int i = 0; i < N; i++)
             {
-                string[] line = Console.ReadLine().Split(' ');
+                string[] line = Console.ReadLine().Replace("  ", " ").Split(' ');
+
+                if ((i + 1) % 3 == 0)
+                {
+                    Console.WriteLine(" ");
+                }
 
                 if (line.Length != N)
                 {
@@ -32,12 +37,12 @@ namespace SudokuTest
 
                 for (int j = 0; j < N; j++)
                 {
-                    if (!int.TryParse(line[j], out board[i, j]))
+                    if (Convert.ToInt32(line[j]) < 1 || Convert.ToInt32(line[j]) > N)
                     {
                         return false;
                     }
 
-                    if (Convert.ToInt32(line[j]) < 1 || Convert.ToInt32(line[j]) > N)
+                    if (!int.TryParse(line[j], out board[i, j]))
                     {
                         return false;
                     }
